@@ -1,31 +1,31 @@
 {
-	"name": "helloworld",
-	"displayName": "HelloWorld",
+	"name": "particle",
+	"displayName": "particle",
 	"description": "",
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.43.0"
 	},
 	"categories": [
-		"Other"
+		"Code share"
 	],
 	"activationEvents": [
-		"onCommand:extension.helloWorld"
+		"onCommand:extension.particle"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "extension.helloWorld",
-				"title": "Hello Yini"
+				"command": "extension.particle",
+				"title": "Hello particle"
 			}
 		],
 		"menus": {
 			"editor/context": [
 				{
 					"when": "resourceLangId == typescript",
-					"command": "extension.helloWorld",
-					"group": "Share@1"
+					"command": "extension.particle",
+					"group": "particle@1"
 				}
 			]
 		}
