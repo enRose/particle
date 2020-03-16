@@ -11,7 +11,7 @@ export default function Header(props) {
         target="_blank"
       >
         <i className="logo" />
-        <span>InstantP</span>
+        <span>Particle</span>
       </a>
       <div className="button">
         <Button>Call a bot</Button>

@@ -8,7 +8,7 @@ import {
 import dynamic from 'umi/dynamic';
 import renderRoutes from 'umi/lib/renderRoutes';
 import history from '@@/history';
-import RendererWrapper0 from '/Users/yiniyin/Projects/particle/server/src/pages/.umi/LocaleWrapper.jsx';
+import RendererWrapper0 from '/Users/yiniyin/Projects/particle/admin-bk/src/pages/.umi/LocaleWrapper.jsx';
 import { routerRedux, dynamic as _dvaDynamic } from 'dva';
 
 const Router = routerRedux.ConnectedRouter;
@@ -20,7 +20,7 @@ const routes = [
       ? _dvaDynamic({
           component: () =>
             import(/* webpackChunkName: "layouts__BlankLayout" */ '../../layouts/BlankLayout'),
-          LoadingComponent: require('/Users/yiniyin/Projects/particle/server/src/components/PageLoading/index')
+          LoadingComponent: require('/Users/yiniyin/Projects/particle/admin-bk/src/components/PageLoading/index')
             .default,
         })
       : require('../../layouts/BlankLayout').default,
@@ -31,7 +31,7 @@ const routes = [
           ? _dvaDynamic({
               component: () =>
                 import(/* webpackChunkName: "p__Home" */ '../Home'),
-              LoadingComponent: require('/Users/yiniyin/Projects/particle/server/src/components/PageLoading/index')
+              LoadingComponent: require('/Users/yiniyin/Projects/particle/admin-bk/src/components/PageLoading/index')
                 .default,
             })
           : require('../Home').default,
@@ -43,7 +43,7 @@ const routes = [
           ? _dvaDynamic({
               component: () =>
                 import(/* webpackChunkName: "layouts__UserLayout" */ '../../layouts/UserLayout'),
-              LoadingComponent: require('/Users/yiniyin/Projects/particle/server/src/components/PageLoading/index')
+              LoadingComponent: require('/Users/yiniyin/Projects/particle/admin-bk/src/components/PageLoading/index')
                 .default,
             })
           : require('../../layouts/UserLayout').default,
@@ -61,7 +61,7 @@ const routes = [
               ? _dvaDynamic({
                   app: require('@tmp/dva').getApp(),
                   models: () => [
-                    import(/* webpackChunkName: 'p__user__login__model.ts' */ '/Users/yiniyin/Projects/particle/server/src/pages/user/login/model.ts').then(
+                    import(/* webpackChunkName: 'p__user__login__model.ts' */ '/Users/yiniyin/Projects/particle/admin-bk/src/pages/user/login/model.ts').then(
                       m => {
                         return { namespace: 'model', ...m.default };
                       },
@@ -69,7 +69,7 @@ const routes = [
                   ],
                   component: () =>
                     import(/* webpackChunkName: "p__user__login" */ '../user/login'),
-                  LoadingComponent: require('/Users/yiniyin/Projects/particle/server/src/components/PageLoading/index')
+                  LoadingComponent: require('/Users/yiniyin/Projects/particle/admin-bk/src/components/PageLoading/index')
                     .default,
                 })
               : require('../user/login').default,
@@ -83,7 +83,7 @@ const routes = [
               ? _dvaDynamic({
                   component: () =>
                     import(/* webpackChunkName: "p__user__register-result" */ '../user/register-result'),
-                  LoadingComponent: require('/Users/yiniyin/Projects/particle/server/src/components/PageLoading/index')
+                  LoadingComponent: require('/Users/yiniyin/Projects/particle/admin-bk/src/components/PageLoading/index')
                     .default,
                 })
               : require('../user/register-result').default,
@@ -97,7 +97,7 @@ const routes = [
               ? _dvaDynamic({
                   app: require('@tmp/dva').getApp(),
                   models: () => [
-                    import(/* webpackChunkName: 'p__user__register__model.ts' */ '/Users/yiniyin/Projects/particle/server/src/pages/user/register/model.ts').then(
+                    import(/* webpackChunkName: 'p__user__register__model.ts' */ '/Users/yiniyin/Projects/particle/admin-bk/src/pages/user/register/model.ts').then(
                       m => {
                         return { namespace: 'model', ...m.default };
                       },
@@ -105,7 +105,7 @@ const routes = [
                   ],
                   component: () =>
                     import(/* webpackChunkName: "p__user__register" */ '../user/register'),
-                  LoadingComponent: require('/Users/yiniyin/Projects/particle/server/src/components/PageLoading/index')
+                  LoadingComponent: require('/Users/yiniyin/Projects/particle/admin-bk/src/components/PageLoading/index')
                     .default,
                 })
               : require('../user/register').default,
@@ -116,7 +116,7 @@ const routes = [
               ? _dvaDynamic({
                   component: () =>
                     import(/* webpackChunkName: "p__404" */ '../404'),
-                  LoadingComponent: require('/Users/yiniyin/Projects/particle/server/src/components/PageLoading/index')
+                  LoadingComponent: require('/Users/yiniyin/Projects/particle/admin-bk/src/components/PageLoading/index')
                     .default,
                 })
               : require('../404').default,
@@ -125,7 +125,7 @@ const routes = [
           {
             component: () =>
               React.createElement(
-                require('/Users/yiniyin/Projects/particle/server/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
+                require('/Users/yiniyin/Projects/particle/admin-bk/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
                   .default,
                 { pagesPath: 'src/pages', hasRoutesInConfig: true },
               ),
@@ -138,7 +138,7 @@ const routes = [
           ? _dvaDynamic({
               component: () =>
                 import(/* webpackChunkName: "layouts__BasicLayout" */ '../../layouts/BasicLayout'),
-              LoadingComponent: require('/Users/yiniyin/Projects/particle/server/src/components/PageLoading/index')
+              LoadingComponent: require('/Users/yiniyin/Projects/particle/admin-bk/src/components/PageLoading/index')
                 .default,
             })
           : require('../../layouts/BasicLayout').default,
@@ -164,7 +164,7 @@ const routes = [
                   ? _dvaDynamic({
                       app: require('@tmp/dva').getApp(),
                       models: () => [
-                        import(/* webpackChunkName: 'p__dashboard__analysis__model.tsx' */ '/Users/yiniyin/Projects/particle/server/src/pages/dashboard/analysis/model.tsx').then(
+                        import(/* webpackChunkName: 'p__dashboard__analysis__model.tsx' */ '/Users/yiniyin/Projects/particle/admin-bk/src/pages/dashboard/analysis/model.tsx').then(
                           m => {
                             return { namespace: 'model', ...m.default };
                           },
@@ -172,7 +172,7 @@ const routes = [
                       ],
                       component: () =>
                         import(/* webpackChunkName: "layouts__BasicLayout" */ '../dashboard/analysis'),
-                      LoadingComponent: require('/Users/yiniyin/Projects/particle/server/src/components/PageLoading/index')
+                      LoadingComponent: require('/Users/yiniyin/Projects/particle/admin-bk/src/components/PageLoading/index')
                         .default,
                     })
                   : require('../dashboard/analysis').default,
@@ -186,7 +186,7 @@ const routes = [
                   ? _dvaDynamic({
                       app: require('@tmp/dva').getApp(),
                       models: () => [
-                        import(/* webpackChunkName: 'p__dashboard__monitor__model.ts' */ '/Users/yiniyin/Projects/particle/server/src/pages/dashboard/monitor/model.ts').then(
+                        import(/* webpackChunkName: 'p__dashboard__monitor__model.ts' */ '/Users/yiniyin/Projects/particle/admin-bk/src/pages/dashboard/monitor/model.ts').then(
                           m => {
                             return { namespace: 'model', ...m.default };
                           },
@@ -194,7 +194,7 @@ const routes = [
                       ],
                       component: () =>
                         import(/* webpackChunkName: "layouts__BasicLayout" */ '../dashboard/monitor'),
-                      LoadingComponent: require('/Users/yiniyin/Projects/particle/server/src/components/PageLoading/index')
+                      LoadingComponent: require('/Users/yiniyin/Projects/particle/admin-bk/src/components/PageLoading/index')
                         .default,
                     })
                   : require('../dashboard/monitor').default,
@@ -208,7 +208,7 @@ const routes = [
                   ? _dvaDynamic({
                       app: require('@tmp/dva').getApp(),
                       models: () => [
-                        import(/* webpackChunkName: 'p__dashboard__workplace__model.ts' */ '/Users/yiniyin/Projects/particle/server/src/pages/dashboard/workplace/model.ts').then(
+                        import(/* webpackChunkName: 'p__dashboard__workplace__model.ts' */ '/Users/yiniyin/Projects/particle/admin-bk/src/pages/dashboard/workplace/model.ts').then(
                           m => {
                             return { namespace: 'model', ...m.default };
                           },
@@ -216,7 +216,7 @@ const routes = [
                       ],
                       component: () =>
                         import(/* webpackChunkName: "layouts__BasicLayout" */ '../dashboard/workplace'),
-                      LoadingComponent: require('/Users/yiniyin/Projects/particle/server/src/components/PageLoading/index')
+                      LoadingComponent: require('/Users/yiniyin/Projects/particle/admin-bk/src/components/PageLoading/index')
                         .default,
                     })
                   : require('../dashboard/workplace').default,
@@ -225,7 +225,7 @@ const routes = [
               {
                 component: () =>
                   React.createElement(
-                    require('/Users/yiniyin/Projects/particle/server/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
+                    require('/Users/yiniyin/Projects/particle/admin-bk/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
                       .default,
                     { pagesPath: 'src/pages', hasRoutesInConfig: true },
                   ),
@@ -245,7 +245,7 @@ const routes = [
                   ? _dvaDynamic({
                       app: require('@tmp/dva').getApp(),
                       models: () => [
-                        import(/* webpackChunkName: 'p__form__step-form__model.ts' */ '/Users/yiniyin/Projects/particle/server/src/pages/form/step-form/model.ts').then(
+                        import(/* webpackChunkName: 'p__form__step-form__model.ts' */ '/Users/yiniyin/Projects/particle/admin-bk/src/pages/form/step-form/model.ts').then(
                           m => {
                             return { namespace: 'model', ...m.default };
                           },
@@ -253,7 +253,7 @@ const routes = [
                       ],
                       component: () =>
                         import(/* webpackChunkName: "layouts__BasicLayout" */ '../form/step-form'),
-                      LoadingComponent: require('/Users/yiniyin/Projects/particle/server/src/components/PageLoading/index')
+                      LoadingComponent: require('/Users/yiniyin/Projects/particle/admin-bk/src/components/PageLoading/index')
                         .default,
                     })
                   : require('../form/step-form').default,
@@ -267,7 +267,7 @@ const routes = [
                   ? _dvaDynamic({
                       app: require('@tmp/dva').getApp(),
                       models: () => [
-                        import(/* webpackChunkName: 'p__form__advanced-form__model.ts' */ '/Users/yiniyin/Projects/particle/server/src/pages/form/advanced-form/model.ts').then(
+                        import(/* webpackChunkName: 'p__form__advanced-form__model.ts' */ '/Users/yiniyin/Projects/particle/admin-bk/src/pages/form/advanced-form/model.ts').then(
                           m => {
                             return { namespace: 'model', ...m.default };
                           },
@@ -275,7 +275,7 @@ const routes = [
                       ],
                       component: () =>
                         import(/* webpackChunkName: "layouts__BasicLayout" */ '../form/advanced-form'),
-                      LoadingComponent: require('/Users/yiniyin/Projects/particle/server/src/components/PageLoading/index')
+                      LoadingComponent: require('/Users/yiniyin/Projects/particle/admin-bk/src/components/PageLoading/index')
                         .default,
                     })
                   : require('../form/advanced-form').default,
@@ -284,7 +284,7 @@ const routes = [
               {
                 component: () =>
                   React.createElement(
-                    require('/Users/yiniyin/Projects/particle/server/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
+                    require('/Users/yiniyin/Projects/particle/admin-bk/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
                       .default,
                     { pagesPath: 'src/pages', hasRoutesInConfig: true },
                   ),
@@ -303,7 +303,7 @@ const routes = [
                   ? _dvaDynamic({
                       component: () =>
                         import(/* webpackChunkName: "layouts__BasicLayout" */ '../list/search'),
-                      LoadingComponent: require('/Users/yiniyin/Projects/particle/server/src/components/PageLoading/index')
+                      LoadingComponent: require('/Users/yiniyin/Projects/particle/admin-bk/src/components/PageLoading/index')
                         .default,
                     })
                   : require('../list/search').default,
@@ -321,7 +321,7 @@ const routes = [
                       ? _dvaDynamic({
                           app: require('@tmp/dva').getApp(),
                           models: () => [
-                            import(/* webpackChunkName: 'p__list__search__articles__model.ts' */ '/Users/yiniyin/Projects/particle/server/src/pages/list/search/articles/model.ts').then(
+                            import(/* webpackChunkName: 'p__list__search__articles__model.ts' */ '/Users/yiniyin/Projects/particle/admin-bk/src/pages/list/search/articles/model.ts').then(
                               m => {
                                 return { namespace: 'model', ...m.default };
                               },
@@ -329,7 +329,7 @@ const routes = [
                           ],
                           component: () =>
                             import(/* webpackChunkName: "layouts__BasicLayout" */ '../list/search/articles'),
-                          LoadingComponent: require('/Users/yiniyin/Projects/particle/server/src/components/PageLoading/index')
+                          LoadingComponent: require('/Users/yiniyin/Projects/particle/admin-bk/src/components/PageLoading/index')
                             .default,
                         })
                       : require('../list/search/articles').default,
@@ -343,7 +343,7 @@ const routes = [
                       ? _dvaDynamic({
                           app: require('@tmp/dva').getApp(),
                           models: () => [
-                            import(/* webpackChunkName: 'p__list__search__projects__model.ts' */ '/Users/yiniyin/Projects/particle/server/src/pages/list/search/projects/model.ts').then(
+                            import(/* webpackChunkName: 'p__list__search__projects__model.ts' */ '/Users/yiniyin/Projects/particle/admin-bk/src/pages/list/search/projects/model.ts').then(
                               m => {
                                 return { namespace: 'model', ...m.default };
                               },
@@ -351,7 +351,7 @@ const routes = [
                           ],
                           component: () =>
                             import(/* webpackChunkName: "layouts__BasicLayout" */ '../list/search/projects'),
-                          LoadingComponent: require('/Users/yiniyin/Projects/particle/server/src/components/PageLoading/index')
+                          LoadingComponent: require('/Users/yiniyin/Projects/particle/admin-bk/src/components/PageLoading/index')
                             .default,
                         })
                       : require('../list/search/projects').default,
@@ -365,7 +365,7 @@ const routes = [
                       ? _dvaDynamic({
                           app: require('@tmp/dva').getApp(),
                           models: () => [
-                            import(/* webpackChunkName: 'p__list__search__applications__model.ts' */ '/Users/yiniyin/Projects/particle/server/src/pages/list/search/applications/model.ts').then(
+                            import(/* webpackChunkName: 'p__list__search__applications__model.ts' */ '/Users/yiniyin/Projects/particle/admin-bk/src/pages/list/search/applications/model.ts').then(
                               m => {
                                 return { namespace: 'model', ...m.default };
                               },
@@ -373,7 +373,7 @@ const routes = [
                           ],
                           component: () =>
                             import(/* webpackChunkName: "layouts__BasicLayout" */ '../list/search/applications'),
-                          LoadingComponent: require('/Users/yiniyin/Projects/particle/server/src/components/PageLoading/index')
+                          LoadingComponent: require('/Users/yiniyin/Projects/particle/admin-bk/src/components/PageLoading/index')
                             .default,
                         })
                       : require('../list/search/applications').default,
@@ -382,7 +382,7 @@ const routes = [
                   {
                     component: () =>
                       React.createElement(
-                        require('/Users/yiniyin/Projects/particle/server/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
+                        require('/Users/yiniyin/Projects/particle/admin-bk/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
                           .default,
                         { pagesPath: 'src/pages', hasRoutesInConfig: true },
                       ),
@@ -397,7 +397,7 @@ const routes = [
                   ? _dvaDynamic({
                       app: require('@tmp/dva').getApp(),
                       models: () => [
-                        import(/* webpackChunkName: 'p__list__basic-list__model.ts' */ '/Users/yiniyin/Projects/particle/server/src/pages/list/basic-list/model.ts').then(
+                        import(/* webpackChunkName: 'p__list__basic-list__model.ts' */ '/Users/yiniyin/Projects/particle/admin-bk/src/pages/list/basic-list/model.ts').then(
                           m => {
                             return { namespace: 'model', ...m.default };
                           },
@@ -405,7 +405,7 @@ const routes = [
                       ],
                       component: () =>
                         import(/* webpackChunkName: "layouts__BasicLayout" */ '../list/basic-list'),
-                      LoadingComponent: require('/Users/yiniyin/Projects/particle/server/src/components/PageLoading/index')
+                      LoadingComponent: require('/Users/yiniyin/Projects/particle/admin-bk/src/components/PageLoading/index')
                         .default,
                     })
                   : require('../list/basic-list').default,
@@ -419,7 +419,7 @@ const routes = [
                   ? _dvaDynamic({
                       app: require('@tmp/dva').getApp(),
                       models: () => [
-                        import(/* webpackChunkName: 'p__list__card-list__model.ts' */ '/Users/yiniyin/Projects/particle/server/src/pages/list/card-list/model.ts').then(
+                        import(/* webpackChunkName: 'p__list__card-list__model.ts' */ '/Users/yiniyin/Projects/particle/admin-bk/src/pages/list/card-list/model.ts').then(
                           m => {
                             return { namespace: 'model', ...m.default };
                           },
@@ -427,7 +427,7 @@ const routes = [
                       ],
                       component: () =>
                         import(/* webpackChunkName: "layouts__BasicLayout" */ '../list/card-list'),
-                      LoadingComponent: require('/Users/yiniyin/Projects/particle/server/src/components/PageLoading/index')
+                      LoadingComponent: require('/Users/yiniyin/Projects/particle/admin-bk/src/components/PageLoading/index')
                         .default,
                     })
                   : require('../list/card-list').default,
@@ -436,7 +436,7 @@ const routes = [
               {
                 component: () =>
                   React.createElement(
-                    require('/Users/yiniyin/Projects/particle/server/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
+                    require('/Users/yiniyin/Projects/particle/admin-bk/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
                       .default,
                     { pagesPath: 'src/pages', hasRoutesInConfig: true },
                   ),
@@ -456,7 +456,7 @@ const routes = [
                   ? _dvaDynamic({
                       app: require('@tmp/dva').getApp(),
                       models: () => [
-                        import(/* webpackChunkName: 'p__profile__basic__model.ts' */ '/Users/yiniyin/Projects/particle/server/src/pages/profile/basic/model.ts').then(
+                        import(/* webpackChunkName: 'p__profile__basic__model.ts' */ '/Users/yiniyin/Projects/particle/admin-bk/src/pages/profile/basic/model.ts').then(
                           m => {
                             return { namespace: 'model', ...m.default };
                           },
@@ -464,7 +464,7 @@ const routes = [
                       ],
                       component: () =>
                         import(/* webpackChunkName: "layouts__BasicLayout" */ '../profile/basic'),
-                      LoadingComponent: require('/Users/yiniyin/Projects/particle/server/src/components/PageLoading/index')
+                      LoadingComponent: require('/Users/yiniyin/Projects/particle/admin-bk/src/components/PageLoading/index')
                         .default,
                     })
                   : require('../profile/basic').default,
@@ -478,7 +478,7 @@ const routes = [
                   ? _dvaDynamic({
                       app: require('@tmp/dva').getApp(),
                       models: () => [
-                        import(/* webpackChunkName: 'p__profile__advanced__model.ts' */ '/Users/yiniyin/Projects/particle/server/src/pages/profile/advanced/model.ts').then(
+                        import(/* webpackChunkName: 'p__profile__advanced__model.ts' */ '/Users/yiniyin/Projects/particle/admin-bk/src/pages/profile/advanced/model.ts').then(
                           m => {
                             return { namespace: 'model', ...m.default };
                           },
@@ -486,7 +486,7 @@ const routes = [
                       ],
                       component: () =>
                         import(/* webpackChunkName: "layouts__BasicLayout" */ '../profile/advanced'),
-                      LoadingComponent: require('/Users/yiniyin/Projects/particle/server/src/components/PageLoading/index')
+                      LoadingComponent: require('/Users/yiniyin/Projects/particle/admin-bk/src/components/PageLoading/index')
                         .default,
                     })
                   : require('../profile/advanced').default,
@@ -495,7 +495,7 @@ const routes = [
               {
                 component: () =>
                   React.createElement(
-                    require('/Users/yiniyin/Projects/particle/server/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
+                    require('/Users/yiniyin/Projects/particle/admin-bk/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
                       .default,
                     { pagesPath: 'src/pages', hasRoutesInConfig: true },
                   ),
@@ -515,7 +515,7 @@ const routes = [
                   ? _dvaDynamic({
                       component: () =>
                         import(/* webpackChunkName: "layouts__BasicLayout" */ '../result/success'),
-                      LoadingComponent: require('/Users/yiniyin/Projects/particle/server/src/components/PageLoading/index')
+                      LoadingComponent: require('/Users/yiniyin/Projects/particle/admin-bk/src/components/PageLoading/index')
                         .default,
                     })
                   : require('../result/success').default,
@@ -529,7 +529,7 @@ const routes = [
                   ? _dvaDynamic({
                       component: () =>
                         import(/* webpackChunkName: "layouts__BasicLayout" */ '../result/fail'),
-                      LoadingComponent: require('/Users/yiniyin/Projects/particle/server/src/components/PageLoading/index')
+                      LoadingComponent: require('/Users/yiniyin/Projects/particle/admin-bk/src/components/PageLoading/index')
                         .default,
                     })
                   : require('../result/fail').default,
@@ -538,7 +538,7 @@ const routes = [
               {
                 component: () =>
                   React.createElement(
-                    require('/Users/yiniyin/Projects/particle/server/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
+                    require('/Users/yiniyin/Projects/particle/admin-bk/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
                       .default,
                     { pagesPath: 'src/pages', hasRoutesInConfig: true },
                   ),
@@ -558,7 +558,7 @@ const routes = [
                   ? _dvaDynamic({
                       component: () =>
                         import(/* webpackChunkName: "layouts__BasicLayout" */ '../exception/403'),
-                      LoadingComponent: require('/Users/yiniyin/Projects/particle/server/src/components/PageLoading/index')
+                      LoadingComponent: require('/Users/yiniyin/Projects/particle/admin-bk/src/components/PageLoading/index')
                         .default,
                     })
                   : require('../exception/403').default,
@@ -572,7 +572,7 @@ const routes = [
                   ? _dvaDynamic({
                       component: () =>
                         import(/* webpackChunkName: "layouts__BasicLayout" */ '../exception/404'),
-                      LoadingComponent: require('/Users/yiniyin/Projects/particle/server/src/components/PageLoading/index')
+                      LoadingComponent: require('/Users/yiniyin/Projects/particle/admin-bk/src/components/PageLoading/index')
                         .default,
                     })
                   : require('../exception/404').default,
@@ -586,7 +586,7 @@ const routes = [
                   ? _dvaDynamic({
                       component: () =>
                         import(/* webpackChunkName: "layouts__BasicLayout" */ '../exception/500'),
-                      LoadingComponent: require('/Users/yiniyin/Projects/particle/server/src/components/PageLoading/index')
+                      LoadingComponent: require('/Users/yiniyin/Projects/particle/admin-bk/src/components/PageLoading/index')
                         .default,
                     })
                   : require('../exception/500').default,
@@ -595,7 +595,7 @@ const routes = [
               {
                 component: () =>
                   React.createElement(
-                    require('/Users/yiniyin/Projects/particle/server/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
+                    require('/Users/yiniyin/Projects/particle/admin-bk/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
                       .default,
                     { pagesPath: 'src/pages', hasRoutesInConfig: true },
                   ),
@@ -615,7 +615,7 @@ const routes = [
                   ? _dvaDynamic({
                       app: require('@tmp/dva').getApp(),
                       models: () => [
-                        import(/* webpackChunkName: 'p__account__center__model.ts' */ '/Users/yiniyin/Projects/particle/server/src/pages/account/center/model.ts').then(
+                        import(/* webpackChunkName: 'p__account__center__model.ts' */ '/Users/yiniyin/Projects/particle/admin-bk/src/pages/account/center/model.ts').then(
                           m => {
                             return { namespace: 'model', ...m.default };
                           },
@@ -623,7 +623,7 @@ const routes = [
                       ],
                       component: () =>
                         import(/* webpackChunkName: "layouts__BasicLayout" */ '../account/center'),
-                      LoadingComponent: require('/Users/yiniyin/Projects/particle/server/src/components/PageLoading/index')
+                      LoadingComponent: require('/Users/yiniyin/Projects/particle/admin-bk/src/components/PageLoading/index')
                         .default,
                     })
                   : require('../account/center').default,
@@ -637,7 +637,7 @@ const routes = [
                   ? _dvaDynamic({
                       app: require('@tmp/dva').getApp(),
                       models: () => [
-                        import(/* webpackChunkName: 'p__account__settings__model.ts' */ '/Users/yiniyin/Projects/particle/server/src/pages/account/settings/model.ts').then(
+                        import(/* webpackChunkName: 'p__account__settings__model.ts' */ '/Users/yiniyin/Projects/particle/admin-bk/src/pages/account/settings/model.ts').then(
                           m => {
                             return { namespace: 'model', ...m.default };
                           },
@@ -645,7 +645,7 @@ const routes = [
                       ],
                       component: () =>
                         import(/* webpackChunkName: "layouts__BasicLayout" */ '../account/settings'),
-                      LoadingComponent: require('/Users/yiniyin/Projects/particle/server/src/components/PageLoading/index')
+                      LoadingComponent: require('/Users/yiniyin/Projects/particle/admin-bk/src/components/PageLoading/index')
                         .default,
                     })
                   : require('../account/settings').default,
@@ -654,7 +654,7 @@ const routes = [
               {
                 component: () =>
                   React.createElement(
-                    require('/Users/yiniyin/Projects/particle/server/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
+                    require('/Users/yiniyin/Projects/particle/admin-bk/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
                       .default,
                     { pagesPath: 'src/pages', hasRoutesInConfig: true },
                   ),
@@ -674,7 +674,7 @@ const routes = [
                   ? _dvaDynamic({
                       component: () =>
                         import(/* webpackChunkName: "layouts__BasicLayout" */ '../editor/flow'),
-                      LoadingComponent: require('/Users/yiniyin/Projects/particle/server/src/components/PageLoading/index')
+                      LoadingComponent: require('/Users/yiniyin/Projects/particle/admin-bk/src/components/PageLoading/index')
                         .default,
                     })
                   : require('../editor/flow').default,
@@ -688,7 +688,7 @@ const routes = [
                   ? _dvaDynamic({
                       component: () =>
                         import(/* webpackChunkName: "layouts__BasicLayout" */ '../editor/mind'),
-                      LoadingComponent: require('/Users/yiniyin/Projects/particle/server/src/components/PageLoading/index')
+                      LoadingComponent: require('/Users/yiniyin/Projects/particle/admin-bk/src/components/PageLoading/index')
                         .default,
                     })
                   : require('../editor/mind').default,
@@ -702,7 +702,7 @@ const routes = [
                   ? _dvaDynamic({
                       component: () =>
                         import(/* webpackChunkName: "layouts__BasicLayout" */ '../editor/koni'),
-                      LoadingComponent: require('/Users/yiniyin/Projects/particle/server/src/components/PageLoading/index')
+                      LoadingComponent: require('/Users/yiniyin/Projects/particle/admin-bk/src/components/PageLoading/index')
                         .default,
                     })
                   : require('../editor/koni').default,
@@ -711,7 +711,7 @@ const routes = [
               {
                 component: () =>
                   React.createElement(
-                    require('/Users/yiniyin/Projects/particle/server/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
+                    require('/Users/yiniyin/Projects/particle/admin-bk/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
                       .default,
                     { pagesPath: 'src/pages', hasRoutesInConfig: true },
                   ),
@@ -729,7 +729,7 @@ const routes = [
               ? _dvaDynamic({
                   component: () =>
                     import(/* webpackChunkName: "p__404" */ '../404'),
-                  LoadingComponent: require('/Users/yiniyin/Projects/particle/server/src/components/PageLoading/index')
+                  LoadingComponent: require('/Users/yiniyin/Projects/particle/admin-bk/src/components/PageLoading/index')
                     .default,
                 })
               : require('../404').default,
@@ -738,7 +738,7 @@ const routes = [
           {
             component: () =>
               React.createElement(
-                require('/Users/yiniyin/Projects/particle/server/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
+                require('/Users/yiniyin/Projects/particle/admin-bk/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
                   .default,
                 { pagesPath: 'src/pages', hasRoutesInConfig: true },
               ),
@@ -748,7 +748,7 @@ const routes = [
       {
         component: () =>
           React.createElement(
-            require('/Users/yiniyin/Projects/particle/server/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
+            require('/Users/yiniyin/Projects/particle/admin-bk/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
               .default,
             { pagesPath: 'src/pages', hasRoutesInConfig: true },
           ),
@@ -758,7 +758,7 @@ const routes = [
   {
     component: () =>
       React.createElement(
-        require('/Users/yiniyin/Projects/particle/server/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
+        require('/Users/yiniyin/Projects/particle/admin-bk/node_modules/umi-build-dev/lib/plugins/404/NotFound.js')
           .default,
         { pagesPath: 'src/pages', hasRoutesInConfig: true },
       ),

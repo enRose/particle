@@ -20,10 +20,10 @@ export function _onCreate() {
     app.use(plugin);
   });
   
-  app.model({ namespace: 'global', ...(require('/Users/yiniyin/Projects/particle/server/src/models/global.ts').default) });
-app.model({ namespace: 'login', ...(require('/Users/yiniyin/Projects/particle/server/src/models/login.ts').default) });
-app.model({ namespace: 'setting', ...(require('/Users/yiniyin/Projects/particle/server/src/models/setting.ts').default) });
-app.model({ namespace: 'user', ...(require('/Users/yiniyin/Projects/particle/server/src/models/user.ts').default) });
+  app.model({ namespace: 'global', ...(require('/Users/yiniyin/Projects/particle/admin-bk/src/models/global.ts').default) });
+app.model({ namespace: 'login', ...(require('/Users/yiniyin/Projects/particle/admin-bk/src/models/login.ts').default) });
+app.model({ namespace: 'setting', ...(require('/Users/yiniyin/Projects/particle/admin-bk/src/models/setting.ts').default) });
+app.model({ namespace: 'user', ...(require('/Users/yiniyin/Projects/particle/admin-bk/src/models/user.ts').default) });
   return app;
 }
 
