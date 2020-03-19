@@ -1,7 +1,5 @@
-/* eslint-disable @typescript-eslint/semi */
 import * as vscode from 'vscode'
 import * as process from 'process'
-import * as http from 'http'
 
 export function activate(context: vscode.ExtensionContext) {
 
@@ -37,37 +35,21 @@ export function activate(context: vscode.ExtensionContext) {
 					rollDice(numDice: $dice, numSides: $sides)
 				}`;
 
-				const data = JSON.stringify({
-					query,
-    				variables: { dice, sides },
-				  })
-				  
-				  const options = {
-					hostname: 'localhost',
-					port: 4000,
-					path: '/graphql',
-					method: 'POST',
-					headers: {
-					  'Content-Type': 'application/json',
-					  'Content-Length': data.length
-					}
-				  }
-				  
-				  const req = http.request(options, res => {
-					console.log(`statusCode: ${res.statusCode}`)
-				  
-					res.on('data', d => {
-					  process.stdout.write(d)
-					})
-				  })
-				  
-				  req.on('error', error => {
-					console.error(error)
-				  })
-				  
-				  req.write(data)
-				  req.end()
+				// fetch('http://localhost:4000/graphql', {
+				// 	method: 'POST',
+				// 	headers: {
+				// 		'Content-Type': 'application/json',
+				// 		'Accept': 'application/json',
+				// 	},
+				// 	body: JSON.stringify({
+				// 		query,
+				// 		variables: { dice, sides },
+				// 	})
+				// })
+				// .then(r => r.json())
+				// .then(data => console.log('data returned:', data));
 			})
+
 	
 			process.env.HOME 
 

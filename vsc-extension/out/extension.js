@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/* eslint-disable @typescript-eslint/semi */
 const vscode = require("vscode");
 const process = require("process");
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
+const http = require("http");
 function activate(context) {
     console.log('particle is activated.');
     // The command has been defined in the package.json file
@@ -22,6 +22,38 @@ function activate(context) {
             .then(selectedLanguage => {
             snippetObject.lang = selectedLanguage;
             return vscode.window.showInputBox({ prompt: "Enter snippet name" });
+        })
+            .then(snippetName => {
+            var dice = 3;
+            var sides = 6;
+            var query = `query RollDice($dice: Int!, $sides: Int) {
+					rollDice(numDice: $dice, numSides: $sides)
+				}`;
+            const data = JSON.stringify({
+                query,
+                variables: { dice, sides },
+            });
+            const options = {
+                hostname: 'localhost',
+                port: 4000,
+                path: '/graphql',
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Content-Length': data.length
+                }
+            };
+            const req = http.request(options, res => {
+                console.log(`statusCode: ${res.statusCode}`);
+                res.on('data', d => {
+                    process.stdout.write(d);
+                });
+            });
+            req.on('error', error => {
+                console.error(error);
+            });
+            req.write(data);
+            req.end();
         });
         process.env.HOME;
         vscode.window.showInformationMessage('Hello particle!');
