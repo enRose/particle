@@ -17,7 +17,7 @@
 		"commands": [
 			{
 				"command": "extension.particle",
-				"title": "Share Code Instantly"
+				"title": "Particle"
 			}
 		],
 		"menus": {

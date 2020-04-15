@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /* eslint-disable @typescript-eslint/semi */
 const vscode = require("vscode");
 const process = require("process");
-const http = require("http");
+const graphql = require("./graphql");
 function activate(context) {
     console.log('particle is activated.');
     // The command has been defined in the package.json file
@@ -15,45 +15,43 @@ function activate(context) {
         const selectedCode = editor.document.getText(editor.selection);
         let snippetObject = {};
         vscode.languages.getLanguages()
-            .then((listOfLanguages) => {
+            .then(listOfLanguages => {
             var _a;
-            return vscode.window.showQuickPick(listOfLanguages, { placeHolder: (_a = vscode.window.activeTextEditor) === null || _a === void 0 ? void 0 : _a.document.languageId });
+            return vscode.window.showQuickPick(listOfLanguages, { placeHolder: (_a = vscode.window.activeTextEditor) === null || _a === void 0 ? void 0 : _a.document.languageId
+            });
         })
             .then(selectedLanguage => {
             snippetObject.lang = selectedLanguage;
             return vscode.window.showInputBox({ prompt: "Enter snippet name" });
         })
             .then(snippetName => {
-            var dice = 3;
-            var sides = 6;
-            var query = `query RollDice($dice: Int!, $sides: Int) {
-					rollDice(numDice: $dice, numSides: $sides)
-				}`;
-            const data = JSON.stringify({
-                query,
-                variables: { dice, sides },
-            });
-            const options = {
-                hostname: 'localhost',
-                port: 4000,
-                path: '/graphql',
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Content-Length': data.length
-                }
-            };
-            const req = http.request(options, res => {
-                console.log(`statusCode: ${res.statusCode}`);
-                res.on('data', d => {
-                    process.stdout.write(d);
+            snippetObject.name = snippetName;
+            return vscode.window.showInputBox({ prompt: "Enter snippet prefix" });
+        })
+            .then(snippetPrefix => {
+            snippetObject.prefix = snippetPrefix;
+            return vscode.window.showInputBox({ prompt: "Enter snippet description" });
+        })
+            .then(snippetDesc => {
+            snippetObject.description = snippetDesc;
+        })
+            .then(() => {
+            let userEmail = context.workspaceState.get('user-email');
+            if (!userEmail) {
+                vscode.window
+                    .showInputBox({ prompt: 'Enter your email' })
+                    .then(email => {
+                    userEmail = email;
+                    return vscode.window.showInputBox({ prompt: 'Enter your password' });
+                })
+                    .then(password => {
+                    graphql.signUp(userEmail, password, (token) => {
+                        context.workspaceState.update('token', token);
+                        context.workspaceState.update('user-email', userEmail);
+                        vscode.window.showInformationMessage("You're logged in.");
+                    });
                 });
-            });
-            req.on('error', error => {
-                console.error(error);
-            });
-            req.write(data);
-            req.end();
+            }
         });
         process.env.HOME;
         vscode.window.showInformationMessage('Hello particle!');

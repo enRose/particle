@@ -2,6 +2,7 @@
 import * as vscode from 'vscode'
 import * as process from 'process'
 import * as http from 'http'
+import * as graphql from './graphql'
 
 export function activate(context: vscode.ExtensionContext) {
 
@@ -13,70 +14,65 @@ export function activate(context: vscode.ExtensionContext) {
 	let disposable = vscode.commands.registerCommand('extension.particle', () => {
 		// The code placed here will be executed every time your command is executed
 
-		const editor:any = vscode.window.activeTextEditor
-		
-        const selectedCode = editor.document.getText(editor.selection)
-		
-		let snippetObject:any = {}
-		
+		const editor: any = vscode.window.activeTextEditor
+
+		const selectedCode = editor.document.getText(editor.selection)
+
+		let snippetObject: any = {}
+
 		vscode.languages.getLanguages()
-            .then((listOfLanguages) => 
-                vscode.window.showQuickPick(
-                	listOfLanguages, 
-					{ placeHolder: vscode.window.activeTextEditor?.document.languageId }
-				)
-			)
+			.then(listOfLanguages => {
+				return vscode.window.showQuickPick(
+					listOfLanguages,
+					{ placeHolder: 
+						vscode.window.activeTextEditor?.document.languageId 
+					})
+			})
 			.then(selectedLanguage => {
-                snippetObject.lang = selectedLanguage;
-                return vscode.window.showInputBox({ prompt: "Enter snippet name" });
+				snippetObject.lang = selectedLanguage
+				return vscode.window.showInputBox({ prompt: "Enter snippet name" })
 			})
 			.then(snippetName => {
-				var dice = 3;
-				var sides = 6;
-				var query = `query RollDice($dice: Int!, $sides: Int) {
-					rollDice(numDice: $dice, numSides: $sides)
-				}`;
-
-				const data = JSON.stringify({
-					query,
-    				variables: { dice, sides },
-				  })
-				  
-				  const options = {
-					hostname: 'localhost',
-					port: 4000,
-					path: '/graphql',
-					method: 'POST',
-					headers: {
-					  'Content-Type': 'application/json',
-					  'Content-Length': data.length
-					}
-				  }
-				  
-				  const req = http.request(options, res => {
-					console.log(`statusCode: ${res.statusCode}`)
-				  
-					res.on('data', d => {
-					  process.stdout.write(d)
-					})
-				  })
-				  
-				  req.on('error', error => {
-					console.error(error)
-				  })
-				  
-				  req.write(data)
-				  req.end()
+				snippetObject.name = snippetName
+				return vscode.window.showInputBox({ prompt: "Enter snippet prefix" })
 			})
-	
-			process.env.HOME 
+			.then(snippetPrefix => {
+				snippetObject.prefix = snippetPrefix
+				return vscode.window.showInputBox({ prompt: "Enter snippet description" })
+			})
+			.then(snippetDesc => {
+				snippetObject.description = snippetDesc
+			})
+			.then(() => {
+				let userEmail = context.workspaceState.get('user-email')
+				
+				if (!userEmail) {
+					vscode.window
+						.showInputBox({ prompt: 'Enter your email' })
+						.then(email => {
+							userEmail = email
+							return vscode.window.showInputBox({prompt: 'Enter your password'})
+						})
+						.then(password => {
+							graphql.signUp(userEmail, password, (token: any) => {
+								context.workspaceState.update('token', token)
+								
+								context.workspaceState.update('user-email', userEmail)
 
-		vscode.window.showInformationMessage('Hello particle!')	
-		
+								vscode.window.showInformationMessage("You're logged in.")
+							})
+						})
+				}
+
+			})
+
+		process.env.HOME
+
+		vscode.window.showInformationMessage('Hello particle!')
 	})
 
 	context.subscriptions.push(disposable)
 }
 
 // this method is called when your extension is deactivated
-export function deactivate() {}
+export function deactivate() { }
