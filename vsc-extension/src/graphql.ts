@@ -1,53 +1,18 @@
 /* eslint-disable @typescript-eslint/semi */
-import * as http from 'http'
+import axios from 'axios'
 
-export const signUp = (userEmail:any, password:any, tokenCB:any) => {
+export const signUp = (userEmail: any, password: any, cb: any) => {
   let signUp = `mutation {
-    signUp(email:${userEmail}, password:${password}) {
+    signUp(email:"${userEmail}", password:"${password}") {
       token
     }
   }`
 
-  let query = "mutation {signUp(email: 'test@outlook.com', password: 'password') {token}}"
-  //JSON.stringify({signUp})
-
-  callAPI(query, (data:any) => tokenCB(data))
-}
-
-const callAPI = (query: string, onData?: any, onError?: any) => {
-  const options = {
-    hostname: 'localhost',
-    port: 4400,
-    path: '',
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Content-Length': query.length
-    }
-  }
-
-  const req = http.request(options, res => {
-    let data = ''
-
-    console.log(`statusCode: ${res.statusCode}`)
-
-    res.on('data', chunk => {
-      process.stdout.write(chunk)
-      console.log(chunk)
-      data += chunk
-    })
-
-    res.on('end', () => {
-      console.log('data:', JSON.parse(data))
-      onData && onData(JSON.parse(data))
-    })
+  axios.post('http://localhost:4400', {query:signUp})
+  .then((res:any) => {
+    cb(res.data.data)
   })
-
-  req.on('error', error => {
+  .catch((error) => {
     console.error(error)
-    onError && onError(error)
   })
-
-  req.write(query)
-  req.end()
 }
