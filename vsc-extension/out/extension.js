@@ -45,8 +45,8 @@ function activate(context) {
                     return vscode.window.showInputBox({ prompt: 'Enter your password' });
                 })
                     .then(password => {
-                    graphql.signUp(userEmail, password, (token) => {
-                        context.workspaceState.update('token', token);
+                    graphql.graphqlSignUp(userEmail, password, (data) => {
+                        context.workspaceState.update('token', data.signUp.token);
                         context.workspaceState.update('user-email', userEmail);
                         vscode.window.showInformationMessage("You're logged in.");
                     });

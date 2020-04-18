@@ -1,8 +1,7 @@
-/* eslint-disable @typescript-eslint/semi */
 import * as vscode from 'vscode'
 import * as process from 'process'
-import * as http from 'http'
 import * as graphql from './graphql'
+import {sisu} from './auth'
 
 export function activate(context: vscode.ExtensionContext) {
 
@@ -44,26 +43,20 @@ export function activate(context: vscode.ExtensionContext) {
 				snippetObject.description = snippetDesc
 			})
 			.then(() => {
-				let userEmail = context.workspaceState.get('user-email')
-				
-				if (!userEmail) {
-					vscode.window
-						.showInputBox({ prompt: 'Enter your email' })
-						.then(email => {
-							userEmail = email
-							return vscode.window.showInputBox({prompt: 'Enter your password'})
-						})
-						.then(password => {
-							graphql.signUp(userEmail, password, (token: any) => {
-								context.workspaceState.update('token', token)
-								
-								context.workspaceState.update('user-email', userEmail)
+				const token = context.workspaceState.get('token')
 
-								vscode.window.showInformationMessage("You're logged in.")
-							})
-						})
+				if (token) {
+					graphql.me(token)
+					.then(data => {
+						// continue
+					})
+					.catch(error => {
+						sisu(context)
+					})
 				}
-
+				else {
+					sisu(context)
+				}
 			})
 
 		process.env.HOME

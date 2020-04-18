@@ -2,18 +2,23 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 /* eslint-disable @typescript-eslint/semi */
 const axios_1 = require("axios");
-exports.signUp = (userEmail, password, cb) => {
+exports.graphqlSignUp = (userEmail, password, onSuccess) => {
     let signUp = `mutation {
     signUp(email:"${userEmail}", password:"${password}") {
       token
     }
   }`;
-    axios_1.default.post('http://localhost:4400', { query: signUp })
+    callAPI(signUp, onSuccess);
+};
+const callAPI = (query, onSuccess, onError = undefined) => {
+    axios_1.default.post('http://localhost:4400', { query: query })
         .then((res) => {
-        cb(res.data.data);
+        console.log(res.data.data.signUp);
+        onSuccess(res.data.data);
     })
         .catch((error) => {
         console.error(error);
+        onError && onError(error);
     });
 };
 //# sourceMappingURL=graphql.js.map
