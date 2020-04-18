@@ -13,7 +13,7 @@ export const sisu = (context: vscode.ExtensionContext) => {
 		.then(password => {
 			graphql.graphqlSignIn(userEmail, password)
 			.then((data: any) => {
-				context.workspaceState.update('token', data.signUp.token)
+				context.workspaceState.update('token', data.signIn.token)
 				
 				vscode.window.showInformationMessage("You're logged in.")
 			})

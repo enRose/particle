@@ -48,7 +48,7 @@ export function activate(context: vscode.ExtensionContext) {
 				if (token) {
 					graphql.me(token)
 					.then(data => {
-						// continue
+						//context.workspaceState.update('token', data.me.token)
 					})
 					.catch(error => {
 						sisu(context)
@@ -61,7 +61,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 		process.env.HOME
 
-		vscode.window.showInformationMessage('Hello particle!')
+		vscode.window.showInformationMessage('Welcom to particle!')
 	})
 
 	context.subscriptions.push(disposable)

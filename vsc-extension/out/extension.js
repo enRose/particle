@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-/* eslint-disable @typescript-eslint/semi */
 const vscode = require("vscode");
 const process = require("process");
 const graphql = require("./graphql");
+const auth_1 = require("./auth");
 function activate(context) {
     console.log('particle is activated.');
     // The command has been defined in the package.json file
@@ -36,25 +36,22 @@ function activate(context) {
             snippetObject.description = snippetDesc;
         })
             .then(() => {
-            let userEmail = context.workspaceState.get('user-email');
-            if (!userEmail) {
-                vscode.window
-                    .showInputBox({ prompt: 'Enter your email' })
-                    .then(email => {
-                    userEmail = email;
-                    return vscode.window.showInputBox({ prompt: 'Enter your password' });
+            const token = context.workspaceState.get('token');
+            if (token) {
+                graphql.me(token)
+                    .then(data => {
+                    //context.workspaceState.update('token', data.me.token)
                 })
-                    .then(password => {
-                    graphql.graphqlSignUp(userEmail, password, (data) => {
-                        context.workspaceState.update('token', data.signUp.token);
-                        context.workspaceState.update('user-email', userEmail);
-                        vscode.window.showInformationMessage("You're logged in.");
-                    });
+                    .catch(error => {
+                    auth_1.sisu(context);
                 });
+            }
+            else {
+                auth_1.sisu(context);
             }
         });
         process.env.HOME;
-        vscode.window.showInformationMessage('Hello particle!');
+        vscode.window.showInformationMessage('Welcom to particle!');
     });
     context.subscriptions.push(disposable);
 }

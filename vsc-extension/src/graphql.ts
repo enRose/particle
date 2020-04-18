@@ -14,7 +14,7 @@ export const me = (token:any) => {
 
 export const graphqlSignIn = (userEmail: any, password: any) => {
   let query = `query {
-    signUp(email:"${userEmail}", password:"${password}") {
+    signIn(email:"${userEmail}", password:"${password}") {
       token
     }
   }`
@@ -37,7 +37,11 @@ const callAPI = async (query:any, headers:any = undefined) => {
     const res = await axios.post('http://localhost:4400', 
     { query: query }, { headers: headers })
 
-    console.log(res.data.data.signUp)
+    console.log(res)
+
+    if (!res.data.data) {
+      return Promise.reject(res)
+    }
     
     return res.data.data
   }
