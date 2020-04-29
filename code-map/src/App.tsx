@@ -2,6 +2,7 @@ import React from 'react';
 import { Layout, Menu } from 'antd';
 import 'antd/dist/antd.css';
 import {Catalogue} from './features/catalogue/catalogue'
+import {Blob} from './features/blob/blob'
 
 const { Header, Content, Footer } = Layout;
 
@@ -23,11 +24,13 @@ function App() {
          
           <div className="site-layout-background" 
             style={{ padding: 24, minHeight: 380 }}>
+            
             <Catalogue />
+          
           </div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>
-          Code Map ©2018 Created by Ant UED
+          Code Map ©2020 Created by Barin
         </Footer>
       </Layout>
     </div>
