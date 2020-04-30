@@ -1,5 +1,6 @@
 import axios from 'axios'
-import { message } from 'antd';
+import { message } from 'antd'
+import { stub } from './catalogueStub'
 
 export const getCodeCatalogue = async () => {
   const messageKey = 'getCodeCatalogue'
@@ -7,14 +8,21 @@ export const getCodeCatalogue = async () => {
   try {
     message.loading({ content: 'Loading...', messageKey })
 
-    const data = await axios.get('/catalogue')
+    let data
 
-    message.success({ content: 'Loaded!', messageKey})
+    if (stub.isOn()) {
+      data = stub.get()
+    }
+    else {
+      await axios.get('/catalogue')
+    }
+    
+    message.success({ content: 'Loaded!', messageKey })
 
     return data
-  } 
-  catch(error) {
+  }
+  catch (error) {
     console.log('error', error)
-    message.error({ content: 'Error!', messageKey})
+    message.error({ content: 'Error!', messageKey })
   }
 }
